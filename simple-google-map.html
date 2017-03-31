@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Euphoria Software</title>
+    <style>
+      #map {
+        height: 460px;
+        width: 100%;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      function initMap() {
+        var uluru = {lat: 51.565183, lng: 5.077527};
+        var grayStyles = [
+          {
+            featureType: "all",
+            stylers: [
+              { saturation: -90 },
+              { lightness: 20 }
+            ]
+          },
+        ];
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          styles: grayStyles,
+          center: uluru
+        });
+
+        var contentString = '<div id="content">'+
+            '<h1 id="firstHeading" class="firstHeading">Euphoria Software</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Wilhelminapark 36<br>5041 EC Tilburg' +
+            '</div>'+
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          title: 'Euphoria Software'
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlbsSDZEZt-Pvc-2GBj1vQP5-EeelfVlU&callback=initMap">
+    </script>
+  </body>
+</html>
