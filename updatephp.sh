@@ -5,7 +5,7 @@
 # @author @Ahmad 
 # @created 15 November 2018
 
-oldversion="5.6"
+oldversion="7.0"
 newversion="7.2"
 
 echo "$(tput setaf 2)1. Removing Current PHP Version PHP $oldversion $(tput sgr 0)"
